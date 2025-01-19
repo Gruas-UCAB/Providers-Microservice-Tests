@@ -1011,7 +1011,45 @@ namespace TestProvidersMicroservice.providerTests
             Assert.True(result is BadRequestObjectResult);
         }
 
+        [Fact]
+        public async Task GetAllActiveCranes_ReturnsOkResult_WithListOfCranes()
+        {
+            // Arrange
+            var cranes = new List<Crane>
+        {
+                new Crane(
+                new CraneId("cfdceb8f-217f-4cdc-b983-7e9815187dce"),
+                new CraneBrand("brand"),
+                new CraneModel("model"),
+                new CranePlate("V24C11G"),
+                new CraneType("medium"),
+                new CraneYear(2023))
+        };
+            var cranesOptional = _Optional<List<Crane>>.Of(cranes);
+            _providerRepositoryMock.Setup(repo => repo.GetAllActiveCranes(It.IsAny<GetAllCranesDto>())).ReturnsAsync(cranesOptional);
 
+            // Act
+            var result = await _controller.GetAllActiveCranes(new GetAllCranesDto());
+
+            // Assert
+            Assert.True(result is OkObjectResult);
+
+        }
+
+        [Fact]
+        public async Task GetAllActiveCranes_ReturnsNotFound_WhenNoCranesFound()
+        {
+            // Arrange
+            var cranesOptional = _Optional<List<Crane>>.Empty();
+            _providerRepositoryMock.Setup(repo => repo.GetAllActiveCranes(It.IsAny<GetAllCranesDto>())).ReturnsAsync(cranesOptional);
+
+            // Act
+            var result = await _controller.GetAllActiveCranes(new GetAllCranesDto());
+
+            // Assert
+            Assert.True(result is NotFoundObjectResult);
+
+        }
 
     }
 }

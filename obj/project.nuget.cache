@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "B+F/ptQ2w9o=",
-  "success": true,
+  "dgSpecHash": "ekQm1EvL7q0=",
+  "success": false,
   "projectFilePath": "C:\\Users\\ANTONIO\\Desktop\\ProyectoDW-GRUA\\TestProvidersMicroservice\\TestProvidersMicroservice.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ANTONIO\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
@@ -128,5 +128,15 @@
     "C:\\Users\\ANTONIO\\.nuget\\packages\\xunit.runner.visualstudio\\2.5.3\\xunit.runner.visualstudio.2.5.3.nupkg.sha512",
     "C:\\Users\\ANTONIO\\.nuget\\packages\\zstdsharp.port\\0.7.3\\zstdsharp.port.0.7.3.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "Warning As Error: Detected package downgrade: xunit from 2.9.2 to 2.5.3. Reference the package directly from the project to select a different version. \r\n TestProvidersMicroservice -> ProvidersMicroservice -> xunit (>= 2.9.2) \r\n TestProvidersMicroservice -> xunit (>= 2.5.3)",
+      "libraryId": "xunit",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }

@@ -2247,8 +2247,10 @@
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.21.0",
           "MongoDB.Bson": "3.1.0",
           "MongoDB.Driver": "3.1.0",
+          "Moq": "4.20.72",
           "RestSharp": "112.1.0",
-          "Swashbuckle.AspNetCore.Swagger": "7.1.0"
+          "Swashbuckle.AspNetCore.Swagger": "7.1.0",
+          "xunit": "2.9.2"
         },
         "compile": {
           "bin/placeholder/ProvidersMicroservice.dll": {}
@@ -6977,5 +6979,16 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "Warning As Error: Detected package downgrade: xunit from 2.9.2 to 2.5.3. Reference the package directly from the project to select a different version. \r\n TestProvidersMicroservice -> ProvidersMicroservice -> xunit (>= 2.9.2) \r\n TestProvidersMicroservice -> xunit (>= 2.5.3)",
+      "libraryId": "xunit",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }
